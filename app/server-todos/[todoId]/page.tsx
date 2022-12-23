@@ -1,5 +1,5 @@
 import React from "react";
-import { fetchTodos } from "../../services/todos";
+import { fetchTodos } from "../../../services/todos";
 import { Todo } from "../../typing";
 import { notFound } from "next/navigation";
 
@@ -16,6 +16,7 @@ const fetchTodo = async (todoId: string) => {
     { next: { revalidate: 60 } }
   ); // cache : 'no-cache' SSR, cache : 'force-cache' SSG , {next: {revalidate: 60}}
   const todo: Todo = await res.json();
+
   return todo;
 };
 
